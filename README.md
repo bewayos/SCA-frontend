@@ -27,6 +27,7 @@ This project implements the frontend part of the Spy Cat Agency management syste
 
 ## Project Structure
 
+```
 src/
 ├── app/
 │ ├── page.tsx # Root navigation page
@@ -37,6 +38,7 @@ src/
 │ └── Alert.tsx
 ├── types/
 │ └── cat.ts
+```
 
 ---
 
@@ -45,7 +47,7 @@ src/
 1. **Clone the repository:**
 
    ```bash
-   git clone (https://github.com/bewayos/SCA-frontend)
+   git clone https://github.com/bewayos/SCA-frontend.git
    cd spy-cat-frontend
    ```
 
@@ -67,7 +69,7 @@ src/
    npm run dev
    ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+The app will be available at [http://localhost:3001](http://localhost:3001).
 
 ---
 
