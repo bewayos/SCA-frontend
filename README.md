@@ -48,7 +48,7 @@ src/
 
    ```bash
    git clone https://github.com/bewayos/SCA-frontend.git
-   cd spy-cat-frontend
+   cd SCA-frontend
    ```
 
 2. **Install dependencies:**
