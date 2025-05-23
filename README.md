@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spy Cat Agency — Frontend UI
 
-## Getting Started
+This project implements the frontend part of the Spy Cat Agency management system. It provides a minimal, production-style interface for managing spy cats via a REST API.
 
-First, run the development server:
+> **Note:** The scope of this frontend is limited to the `Cats` entity as defined in the assessment requirements. Missions and Targets are not part of the UI implementation.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js 14](https://nextjs.org/)
+- TypeScript
+- Tailwind CSS
+- REST API integration
+- Custom feedback component (`Alert`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- View all spy cats
+- Create a new spy cat with form validation
+- Delete existing cats
+- Inline user feedback (success/error)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+src/
+├── app/
+│ ├── page.tsx # Root navigation page
+│ └── spy-cats/page.tsx # Main management screen
+├── components/
+│ ├── CatForm.tsx
+│ ├── CatList.tsx
+│ └── Alert.tsx
+├── types/
+│ └── cat.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Setup Instructions
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone (https://github.com/bewayos/SCA-frontend)
+   cd spy-cat-frontend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Create `.env.local` and set the backend base URL:**
+
+   ```env
+   NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+   ```
+
+4. **Start development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Pages
+
+### `/`
+
+- Minimal landing page
+- Link to spy cat dashboard
+- Informational banner using `<Alert />`
+
+### `/spy-cats`
+
+- Displays list of spy cats from API
+- Form to create a new cat
+- Delete functionality
+- All operations use `fetch` with proper error handling
+
+---
+
+## API Endpoints Used
+
+- `GET /cats`
+- `POST /cats`
+- `DELETE /cats/{id}`
+
+Backend must be available and CORS-enabled.
+
+---
+
+## Limitations
+
+- This frontend does **not** implement missions, targets, assignment, or note handling
+- No persistent authentication or backend validation beyond status codes
+- No PATCH for salary
+
+---
+
+## Manual Test Scenarios
+
+- Add valid cat → appears in list
+- Add cat with invalid breed → shows error
+- Delete cat → disappears from list
+- Reload page → persists data via API
+- API not available → error message shown
+
+---
+
+## License
+
+MIT — for educational/testing use.
